@@ -8,7 +8,7 @@ public interface Tokenizer {
     String Peek();
 
     /**
-     * Consume the net token from the input stream and return it
+     * Consume the next token from the input stream and return it
      * effect: removes the next token from the input stream
      * */
     String Consume();
@@ -23,6 +23,10 @@ public interface Tokenizer {
      *           from input stream if it is s
      */
     boolean Consume(String s);
+
+
+    /** return: line*/
+    int getLine();
 
 
 }

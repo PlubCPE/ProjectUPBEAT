@@ -1,12 +1,14 @@
 package Tokenizer;
 
 public class Token implements Tokenizer{
-    private String src, next;
+    private final String src;
+    private String next,prev;
     private  int pos, line;
 
     public Token(String src){
         this.src = src;
         pos = 0;
+        line = 1;
         ComputeNext();
     }
 
@@ -55,6 +57,11 @@ public class Token implements Tokenizer{
         }
     }
 
+    @Override
+    public int getLine(){
+        return line;
+    }
+
     public boolean isCharacter(char c){
         return Character.isLetter(c);
     }
@@ -94,7 +101,9 @@ public class Token implements Tokenizer{
             sb.append(src.charAt(pos));
             pos++;
         }else {
-
+            throw new RuntimeException();
         }
+        prev = next;
+        next = sb.toString();
     }
 }
