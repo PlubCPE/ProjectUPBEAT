@@ -1,7 +1,8 @@
 package AST;
 
-public abstract class ExprNode {
-    public abstract long Eval(long game);
-    public abstract String toString();
-    public ExprNode next;
+public interface ExprNode {
+     long evaluate();
+     String toString();
+     void print(StringBuilder s);
+
 }
